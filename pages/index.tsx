@@ -1,7 +1,15 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import type { NextPage } from "next";
+import { useForm } from "react-hook-form";
+
+interface IFormInputs {
+  email: string;
+  password: string;
+}
 
 const Home: NextPage = () => {
+  const { register, handleSubmit } = useForm<IFormInputs>();
+
   return (
     <Stack
       sx={{
