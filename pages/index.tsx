@@ -53,18 +53,6 @@ const Home: NextPage = () => {
               <Typography variant="h4" textAlign="center">
                 Login RHF
               </Typography>
-              <input type="text" placeholder="E-mail" {...register("email")} />
-              <Typography variant="caption" sx={{ color: "red" }}>
-                {errors?.email?.message}
-              </Typography>
-              <input
-                type="password"
-                placeholder="Senha"
-                {...register("password")}
-              />
-              <Typography variant="caption" sx={{ color: "red" }}>
-                {errors?.password?.message}
-              </Typography>
               <Button variant="contained" type="submit">
                 Enviar
               </Button>
