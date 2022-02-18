@@ -8,11 +8,13 @@ interface IFormInputs {
 }
 
 const Home: NextPage = () => {
-  const { register, handleSubmit } = useForm<IFormInputs>();
+  const { register, handleSubmit, watch } = useForm<IFormInputs>();
 
   const onSubmit = (data: IFormInputs) => {
     console.log(data);
   }
+
+  console.log(watch("email"));
 
   return (
     <Stack
@@ -37,7 +39,7 @@ const Home: NextPage = () => {
             <Typography variant="h4" textAlign="center">
               Login RHF
             </Typography>
-            <input type="text" placeholder="Nome" {...register("email")} />
+            <input type="text" placeholder="E-mail" {...register("email")} />
             <input
               type="password"
               placeholder="Senha"
