@@ -2,19 +2,32 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import {yupResolver} from '@hookform/resolvers/yup';
+import { yupResolver } from "@hookform/resolvers/yup";
 
 interface IFormInputs {
   email: string;
   password: string;
 }
 
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Insira um email válido.")
+    .required("O email é obrigatório."),
+  password: yup
+    .string()
+    .min(6, "A senha deve possuir no mínimo 6 caracteres.")
+    .required("A senha é obrigatória."),
+});
+
 const Home: NextPage = () => {
-  const { register, handleSubmit, watch } = useForm<IFormInputs>();
+  const { register, handleSubmit, watch } = useForm<IFormInputs>({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data: IFormInputs) => {
     console.log(data);
-  }
+  };
 
   return (
     <Stack
