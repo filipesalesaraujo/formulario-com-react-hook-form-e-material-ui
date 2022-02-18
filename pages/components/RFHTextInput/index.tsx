@@ -12,7 +12,6 @@ export const RHFTextInput: React.FC<ITextInput> = ({ name, label, type }) => {
     control,
     formState: { errors },
   } = useFormContext();
-
   return (
     <Controller
       name={name}
@@ -22,7 +21,7 @@ export const RHFTextInput: React.FC<ITextInput> = ({ name, label, type }) => {
           label={label}
           {...field}
           type={type}
-          error={!!errors[name].message}
+          error={!!errors[name]?.message}
           helperText={errors[name]?.message}
         />
       )}
