@@ -21,7 +21,11 @@ const schema = yup.object().shape({
 });
 
 const Home: NextPage = () => {
-  const { register, handleSubmit, watch } = useForm<IFormInputs>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   });
 
@@ -53,11 +57,17 @@ const Home: NextPage = () => {
               Login RHF
             </Typography>
             <input type="text" placeholder="E-mail" {...register("email")} />
+            <Typography variant="caption" sx={{ color: "red" }}>
+              {errors?.email?.message}
+            </Typography>
             <input
               type="password"
               placeholder="Senha"
               {...register("password")}
             />
+            <Typography variant="caption" sx={{ color: "red" }}>
+              {errors?.password?.message}
+            </Typography>
             <Button variant="contained" type="submit">
               Enviar
             </Button>
