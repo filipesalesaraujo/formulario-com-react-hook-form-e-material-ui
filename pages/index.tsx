@@ -1,6 +1,8 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import {yupResolver} from '@hookform/resolvers/yup';
 
 interface IFormInputs {
   email: string;
@@ -13,8 +15,6 @@ const Home: NextPage = () => {
   const onSubmit = (data: IFormInputs) => {
     console.log(data);
   }
-
-  console.log(watch("email"));
 
   return (
     <Stack
