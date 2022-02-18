@@ -10,6 +10,10 @@ interface IFormInputs {
 const Home: NextPage = () => {
   const { register, handleSubmit } = useForm<IFormInputs>();
 
+  const onSubmit = (data: IFormInputs) => {
+    console.log(data);
+  }
+
   return (
     <Stack
       sx={{
@@ -20,7 +24,7 @@ const Home: NextPage = () => {
       }}
     >
       <Box>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Stack
             spacing={2}
             sx={{
@@ -33,9 +37,15 @@ const Home: NextPage = () => {
             <Typography variant="h4" textAlign="center">
               Login RHF
             </Typography>
-            <input type="text" name="name" placeholder="Nome" />
-            <input type="password" name="password" placeholder="Senha" />
-            <Button variant="contained">Enviar</Button>
+            <input type="text" placeholder="Nome" {...register("email")} />
+            <input
+              type="password"
+              placeholder="Senha"
+              {...register("password")}
+            />
+            <Button variant="contained" type="submit">
+              Enviar
+            </Button>
           </Stack>
         </form>
       </Box>
