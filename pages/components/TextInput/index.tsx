@@ -7,7 +7,7 @@ interface ITextInput {
   type: "text" | "password";
 }
 
-export const RHFTextInput: React.FC<ITextInput> = ({ name, label, type }) => {
+export function TextInput({ name, label, type }: ITextInput) {
   const {
     control,
     formState: { errors },
@@ -27,4 +27,4 @@ export const RHFTextInput: React.FC<ITextInput> = ({ name, label, type }) => {
       )}
     />
   );
-};
+}

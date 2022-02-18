@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { useForm, FormProvider } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { RHFTextInput } from "./components/RFHTextInput";
+import { TextInput } from "./components/TextInput";
 
 interface IFormInputs {
   email: string;
@@ -59,8 +59,8 @@ const Home: NextPage = () => {
               <Typography variant="h4" textAlign="center">
                 Login RHF
               </Typography>
-              <RHFTextInput name="email" label="Email" type="text" />
-              <RHFTextInput name="password" label="Senha" type="password" />
+              <TextInput name="email" label="Email" type="text" />
+              <TextInput name="password" label="Senha" type="password" />
               <Button variant="contained" type="submit">
                 Enviar
               </Button>
